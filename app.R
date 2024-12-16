@@ -4,36 +4,15 @@
 # last udpated: 10/13/23
 
 # load the libraries
-# remotes::install_github("dreamRs/shinytreeview")
-library(shiny)
-library(shinyjs)
-library(shinyBS)
-library(leaflet)
-library(leaflet.extras)
-library(dplyr)
-library(leaflet.extras)
-library(shinythemes)
-library(ggplot2)
-library(stringr)
-library(rapport)
-library(RColorBrewer)
-library(viridis)
-library(htmltools)
-library(rsconnect)
-library(shinytreeview)
-library(shinyWidgets)
-library(purrr)
-library(shinydashboard)
-library(DT)
-library(htmlwidgets)
+librarian::shelf(
+  dplyr, DT, ggplot2, htmltools, htmlwidgets, leaflet, leaflet.extras, purrr, 
+  rapport, RColorBrewer, rsconnect,  shiny, shinyBS, shinydashboard, shinyjs, 
+  shinythemes, dreamRs/shinytreeview, shinyWidgets, stringr, viridis)
 
 jsfile <- "bundle.js" # the bundle.js file is in the `www` directory, pls do not change the directory name
 
-
-
 # IMPORT DATA, obtained from CalCOFI:
 source("data/data-cleaning.R")  # import data cleaning functions
-
 
 new_raw <- read.csv("data/whale_visual_data/new-marine-mammal-data/CC-202311.txt", header = TRUE, na.strings = "NA")
 whale <- read.csv("data/whale_visual_data/whale.csv")
