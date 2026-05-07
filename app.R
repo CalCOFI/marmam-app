@@ -183,6 +183,7 @@ ui <- fluidPage(
                      
                    )),
   dashboardBody(
+    tags$head(includeHTML("google-analytics.html")),
     tabItems(
       tabItem(tabName = "info",
               HTML('<body>
