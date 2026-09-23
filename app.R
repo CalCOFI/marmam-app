@@ -282,12 +282,15 @@ ui <- fluidPage(
                              div(
                                style = "margin-bottom: 10px; text-align: left;",
                                selectInput("provider", label = "Select Map Provider:",
-                                           choices = c("CartoDB.Positron", "OpenStreetMap.Mapnik",
+                                           # CARTO basemaps (CartoDB.*) require an API key as of
+                                           # 2026-09 and otherwise draw "API KEY REQUIRED" over the
+                                           # map, so the default is Esri's keyless light-gray canvas
+                                           choices = c("Esri.WorldGrayCanvas", "OpenStreetMap.Mapnik",
                                                        "Esri.NatGeoWorldMap", "Esri.WorldTerrain",
-                                                       "Esri.WorldImagery"), #"CartoDB.DarkMatter", "Esri.WorldPhysical", "Esri.WorldImagery",
-                                           #"Esri.WorldTerrain","USGS.USImageryTopo"
+                                                       "Esri.WorldImagery"), #"Esri.WorldPhysical",
+                                           #"USGS.USImageryTopo"
 
-                                           selected = "CartoDB.Positron"),
+                                           selected = "Esri.WorldGrayCanvas"),
                              ),
                              div(
                                style = "margin-bottom: 5px; text-align: left;",
